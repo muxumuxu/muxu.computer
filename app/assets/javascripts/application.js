@@ -19,12 +19,12 @@ $(document).ready(function() {
   $('form').on('submit', function(e){
     e.preventDefault();
     var password = $('#password').val();
-    var good_password = "123jaimelesinternets"
-    console.log(password);
-    if (password == good_password) {
-      $('#answer').html("You got it! Get in touch with us: secret_services@muxumuxu.com.");
-    } else {
+    var good_password = "123jaimelesinternets";
+    while (password != good_password) {
+    //   $('#answer').html("You got it! Get in touch with us: secret_services@muxumuxu.com.");
+    // } else {
       $('#answer').html("Nope, sorry, wrong one, nope nope nope. Try again.");
+    $('.user_question').clone().find("input:text").val("").end().appendTo('.bot_answer');
     }
   });
 });
