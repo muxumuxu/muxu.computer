@@ -1,8 +1,8 @@
 <div class="wrapper">
 
-  <p>You put the following password: <%= @query %></p>
+  <p>You put the following password: <%= @password %></p>
   <p><%= @answer %></p>
-  <% if @query != @champion %>
+  <% if @password != @good_password %>
     <%= link_to 'Let me try again', '/ask' %>
   <% else %>
     <%= link_to 'Drop us an email!', 'mailto:secret.services@muxumuxu.com' %>

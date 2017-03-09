@@ -3,14 +3,14 @@ class ComputerController < ApplicationController
   end
 
   def answer
-    @query = params[:query]
-    @answer = computer_answer(@query)
+    @password = params[:password]
+    @answer = computer_answer(@password)
   end
 
-  def computer_answer(query)
-    @champion = "123jaimelesinternets"
-    return "You got it!" if @query == @champion
-    if @query == @query.upcase
+  def computer_answer(password)
+    @good_password = "123jaimelesinternets"
+    return "You got it!" if @password == @good_password
+    if @password == @password.upcase
       "CALM DOWN! I CAN SHOUT AT YOU TOO!"
     else
       "Nope, sorry, wrong one, nope nope nope."
