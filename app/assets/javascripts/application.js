@@ -18,10 +18,11 @@
 $(document).ready(function() {
   $('form').on('submit', function(e){
     e.preventDefault();
-    var password = $(this).val;
+    var password = $('#password').val();
     var good_password = "123jaimelesinternets"
+    console.log(password);
     if (password == good_password) {
-      $('#answer').html("You got it!");
+      $('#answer').html("You got it! Get in touch with us: secret_services@muxumuxu.com.");
     } else {
       $('#answer').html("Nope, sorry, wrong one, nope nope nope. Try again.");
     }
