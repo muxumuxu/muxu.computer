@@ -14,3 +14,16 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+  $('form').on('submit', function(e){
+    e.preventDefault();
+    var password = $(this).val;
+    var good_password = "123jaimelesinternets"
+    if (password == good_password) {
+      $('#answer').html("You got it!");
+    } else {
+      $('#answer').html("Nope, sorry, wrong one, nope nope nope. Try again.");
+    }
+  });
+});
