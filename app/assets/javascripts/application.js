@@ -15,16 +15,25 @@
 //= require turbolinks
 //= require_tree .
 
+var BOT_WRONG_ANSWER = "Nope, sorry, wrong one, nope nope nope. Try again.";
+var BOT_GOOD_ANSWER = "You got it! Get in touch with us: secret_services@muxumuxu.com.";
+var PASSWORD = "123jaimelesinternets";
+
+var PROMPT_HTML = "<p class=\"light-blue\">muxu.computer <span class=\"dark-blue\">git:(<span class=\"red\">secret_password</span>)</span></p>";
+
 $(document).ready(function() {
   $('form').on('submit', function(e){
-    e.preventDefault();
     var password = $('#password').val();
-    var good_password = "123jaimelesinternets";
-    while (password != good_password) {
-    //   $('#answer').html("You got it! Get in touch with us: secret_services@muxumuxu.com.");
-    // } else {
-      $('#answer').html("Nope, sorry, wrong one, nope nope nope. Try again.");
-    $('.user_question').clone().find("input:text").val("").end().appendTo('.bot_answer');
-    }
+    var botAnswer = password === PASSWORD ? BOT_GOOD_ANSWER : BOT_WRONG_ANSWER;
+
+    var previousMessages = $("#previous_messages");
+    var lastAnswer = previousMessages.lastChild;
+
+    var newPreviousMessage = document.createElement("div");
+    newPreviousMessage.innerHTML =
+      PROMPT_HTML + "<span class=\"user_input\">" + password + "</span>" +
+      botAnswer;
+
+      newPreviousMessage.appendTo(lastAnswer);
   });
 });
